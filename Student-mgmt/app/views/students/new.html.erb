@@ -1,16 +1,35 @@
 <h1>New Student</h1>
-<%= form_with model: @student do |form| %>
-    <div>
-    <%= form.label :first_name %> <br>
+
+<% if @student.errors.any? %>
+  <div style="color: red;">
+    <h3><%= pluralize(@student.errors.count, "error") %> prevented this student from being saved:</h3>
+    <ul>
+      <% @student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @student, local: true do |form| %>
+
+  <div>
+    <%= form.label :first_name %><br>
     <%= form.text_field :first_name %>
-    </div>
-    <div>
-    <%= form.label :last_name %> <br>
+  </div>
+
+  <div>
+    <%= form.label :last_name %><br>
     <%= form.text_field :last_name %>
-    </div>
-    <div>
-    <%= form.label :email %> <br>
+  </div>
+
+  <div>
+    <%= form.label :email %><br>
     <%= form.email_field :email %>
-    </div>
+  </div>
+
+  <div>
     <%= form.submit "Create Student" %>
-    <% end %>
+  </div>
+
+<% end %>
