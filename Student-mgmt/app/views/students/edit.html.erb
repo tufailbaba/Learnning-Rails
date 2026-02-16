@@ -1,4 +1,4 @@
-<h1>New Student</h1>
+<h1>Edit Student</h1>
 <%= form_with model: @student do |form| %>
     <% if @student.errors.any? %>
     <% @student.errors.full_messages.each do |message| %>
@@ -17,5 +17,5 @@
     <%= form.label :email %> <br>
     <%= form.email_field :email %>
     </div>
-    <%= form.submit "Create Student" %>
+    <%= form.submit "Update Student" %>
     <% end %>
