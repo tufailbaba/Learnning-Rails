@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
   @student = Student.new(student_params)
 
   if @student.save
-    redirect_to students_path
+    redirect_to students_path , notice: "Student was successfully created."
   else
     render :new, status: :unprocessable_entity
   end
@@ -23,14 +23,14 @@ end
   end
   def update
     if @student.update(student_params)
-      redirect_to @student
+      redirect_to @student, notice: "Student was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
   end
   def destroy
     @student.destroy
-    redirect_to students_path
+    redirect_to students_path , notice: "Student was successfully destroyed."
   end
 
   private
