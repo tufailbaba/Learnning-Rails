@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_02_19_091334) do
+ActiveRecord::Schema[8.0].define(version: 2026_02_19_092905) do
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -68,6 +68,15 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_19_091334) do
     t.string "alternate_contact_number"
   end
 
+  create_table "sub_demos", force: :cascade do |t|
+    t.string "titile"
+    t.integer "demo_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["demo_id"], name: "index_sub_demos_on_demo_id"
+  end
+
   add_foreign_key "student_projects", "projects"
   add_foreign_key "student_projects", "students"
+  add_foreign_key "sub_demos", "demos"
 end
