@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_02_19_092905) do
+ActiveRecord::Schema[8.0].define(version: 2026_02_19_100040) do
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -36,6 +36,30 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_19_092905) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "departments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "manager_histroys", force: :cascade do |t|
+    t.date "joining_date"
+    t.string "total_experience"
+    t.integer "manager_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["manager_id"], name: "index_manager_histroys_on_manager_id"
+  end
+
+  create_table "managers", force: :cascade do |t|
+    t.string "name"
+    t.string "contact"
+    t.integer "departmnet_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["departmnet_id"], name: "index_managers_on_departmnet_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -76,6 +100,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_19_092905) do
     t.index ["demo_id"], name: "index_sub_demos_on_demo_id"
   end
 
+  add_foreign_key "manager_histroys", "managers"
+  add_foreign_key "managers", "departmnets"
   add_foreign_key "student_projects", "projects"
   add_foreign_key "student_projects", "students"
   add_foreign_key "sub_demos", "demos"
