@@ -1,34 +1,45 @@
 class Student < ApplicationRecord
-  has_many :blogs
-  has_and_belongs_to_many :courses
-  has_many :student_projects
-  has_many :projects, through: :student_projects
 
-  validates :first_name, :last_name, :email, presence: true
-  validates :email, uniqueness: true
-  validates :first_name, :last_name, length: { minimum: 2, maximum: 50 }
+  # -------------------------
+  # Associations (if any)
+  # -------------------------
+
+  # -------------------------
+  # Validations
+  # -------------------------
+
+  # Name validation (letters and spaces only)
   validates :first_name, :last_name,
-            format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
+            presence: true,
+            format: { with: /\A[a-zA-Z\s]+\z/,
+                      message: "only allows letters" }
 
+  # Email validation
+  validates :email,
+            presence: true,
+            uniqueness: true,
+            format: { with: URI::MailTo::EMAIL_REGEXP }
+
+  # Age validation
   validate :validate_student_age
-  after_create :display_student_age
 
-  def display_student_age
-    if date_of_birth.present?
-      age = ((Time.zone.now - date_of_birth.to_time) / 1.year.seconds).floor
-      puts "The age of the student is #{age} years."
-    else
-      puts "Date of birth is not provided."
-    end
+  def full_name
+    "#{first_name} #{last_name}"
   end
+  def age
+    return unless date_of_birth.present?  
+    ((Date.today - date_of_birth).to_i / 365.25).floor
+  end
+  private
 
   def validate_student_age
     return unless date_of_birth.present?
 
-    age = Date.today.year - date_of_birth.year
+    age = ((Date.today - date_of_birth).to_i / 365.25).floor
 
     if age < 15 || age > 100
       errors.add(:date_of_birth, "Age must be between 15 and 100 years.")
     end
   end
+
 end
