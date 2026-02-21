@@ -30,6 +30,9 @@ class Student < ApplicationRecord
     return unless date_of_birth.present?  
     ((Date.today - date_of_birth).to_i / 365.25).floor
   end
+  def name_with_email
+    "#{full_name}/(#{email})"
+  end
   private
 
   def validate_student_age
