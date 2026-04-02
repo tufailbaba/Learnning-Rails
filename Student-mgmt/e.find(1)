@@ -1,0 +1,25 @@
+ => 
+[[32m#<Course:0x00007b8b99d067e0[0m
+  id: [34m[1m1[0m,
+  name: [31m[1m"[0m[31mRuby on Rails[0m[31m[1m"[0m,
+  description: [31m[1m"[0m[31mBackend framework[0m[31m[1m"[0m,
+  created_at: [31m[1m"[0m[31m2026-02-19 07:39:55.880188000 +0000[0m[31m[1m"[0m,
+  updated_at: [31m[1m"[0m[31m2026-02-19 07:39:55.880188000 +0000[0m[31m[1m"[0m[32m>[0m,
+ [32m#<Course:0x00007b8b99d06420[0m
+  id: [34m[1m2[0m,
+  name: [31m[1m"[0m[31mRuby on Rails[0m[31m[1m"[0m,
+  description: [31m[1m"[0m[31mBackend framework[0m[31m[1m"[0m,
+  created_at: [31m[1m"[0m[31m2026-02-19 07:40:07.591020000 +0000[0m[31m[1m"[0m,
+  updated_at: [31m[1m"[0m[31m2026-02-19 07:40:07.591020000 +0000[0m[31m[1m"[0m[32m>[0m,
+ [32m#<Course:0x00007b8b99d062e0[0m
+  id: [34m[1m3[0m,
+  name: [31m[1m"[0m[31mPostgreSQL[0m[31m[1m"[0m,
+  description: [31m[1m"[0m[31mDatabase system[0m[31m[1m"[0m,
+  created_at: [31m[1m"[0m[31m2026-02-19 07:40:12.690826000 +0000[0m[31m[1m"[0m,
+  updated_at: [31m[1m"[0m[31m2026-02-19 07:40:12.690826000 +0000[0m[31m[1m"[0m[32m>[0m,
+ [32m#<Course:0x00007b8b99d06060[0m
+  id: [34m[1m4[0m,
+  name: [31m[1m"[0m[31mJavaScript[0m[31m[1m"[0m,
+  description: [31m[1m"[0m[31mFrontend language[0m[31m[1m"[0m,
+  created_at: [31m[1m"[0m[31m2026-02-19 07:40:16.116676000 +0000[0m[31m[1m"[0m,
+  updated_at: [31m[1m"[0m[31m2026-02-19 07:40:16.116676000 +0000[0m[31m[1m"[0m[32m>[0m] 

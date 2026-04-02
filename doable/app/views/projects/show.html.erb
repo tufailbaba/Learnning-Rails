@@ -1,0 +1,4 @@
+<h1><%= @project.name %></h1>
+<p>Project Details Coming soon... </p>
+<%= button_to "Edit", edit_project_path(@project), method: :get %>
+<%= button_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>
