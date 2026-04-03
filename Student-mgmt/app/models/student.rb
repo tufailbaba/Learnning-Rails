@@ -1,5 +1,4 @@
 class Student < ApplicationRecord
-
   # -------------------------
   # Associations (if any)
   # -------------------------
@@ -27,7 +26,7 @@ class Student < ApplicationRecord
     "#{first_name} #{last_name}"
   end
   def age
-    return unless date_of_birth.present?  
+    return unless date_of_birth.present?
     ((Date.today - date_of_birth).to_i / 365.25).floor
   end
   def name_with_email
@@ -44,5 +43,4 @@ class Student < ApplicationRecord
       errors.add(:date_of_birth, "Age must be between 15 and 100 years.")
     end
   end
-
 end

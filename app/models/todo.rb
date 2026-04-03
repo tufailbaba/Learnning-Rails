@@ -1,3 +1,6 @@
 class Todo < ApplicationRecord
-    validates :title, presence: true
+  belongs_to :project, optional: true
+
+  validates :name, presence: true
+  validates :priority, numericality: { only_integer: true, greater_than: 0 }
 end

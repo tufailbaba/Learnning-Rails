@@ -1,4 +1,14 @@
 <h1><%= @project.name %></h1>
-<p>Project Details Coming soon... </p>
+<ul>
+  <% @project.todos.each do |todo| %>
+    <li>
+      <%= link_to todo.name, todo_path(todo) %>
+      <% if todo.completed %>
+        (Completed)
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
 <%= button_to "Edit", edit_project_path(@project), method: :get %>
 <%= button_to "Delete", project_path(@project), method: :delete, data: { confirm: "Are you sure?" } %>

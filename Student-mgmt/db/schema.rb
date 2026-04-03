@@ -50,7 +50,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_20_070250) do
     t.integer "manager_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["manager_id"], name: "index_manager_histroys_on_manager_id"
+    t.index [ "manager_id" ], name: "index_manager_histroys_on_manager_id"
   end
 
   create_table "managers", force: :cascade do |t|
@@ -59,7 +59,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_20_070250) do
     t.integer "departmnet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["departmnet_id"], name: "index_managers_on_departmnet_id"
+    t.index [ "departmnet_id" ], name: "index_managers_on_departmnet_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -75,8 +75,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_20_070250) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.date "submission_date"
-    t.index ["project_id"], name: "index_student_projects_on_project_id"
-    t.index ["student_id"], name: "index_student_projects_on_student_id"
+    t.index [ "project_id" ], name: "index_student_projects_on_project_id"
+    t.index [ "student_id" ], name: "index_student_projects_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -97,7 +97,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_20_070250) do
     t.integer "demo_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["demo_id"], name: "index_sub_demos_on_demo_id"
+    t.index [ "demo_id" ], name: "index_sub_demos_on_demo_id"
   end
 
   add_foreign_key "manager_histroys", "managers"
