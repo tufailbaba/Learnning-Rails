@@ -1,10 +1,13 @@
 <h1><%= @project.name %></h1>
+<p>Total todos: <%= @project.todos.count %></p>
 <ul>
   <% @project.todos.each do |todo| %>
     <li>
-      <%= link_to todo.name, todo_path(todo) %>
+      <%= link_to todo.name, todo_path(todo) %> - <strong><%= todo.priority %></strong>
       <% if todo.completed %>
-        (Completed)
+        <span class="text-success">(Completed)</span>
+      <% else %>
+        <span class="text-warning">(Pending)</span>
       <% end %>
     </li>
   <% end %>

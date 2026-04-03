@@ -18,7 +18,11 @@
   </p>
   <p>
     <strong>Project:</strong>
-    <%= link_to todo.project.name, project_path(todo.project) %>
+    <% if todo.project %>
+      <%= link_to todo.project.name, project_path(todo.project) %>
+    <% else %>
+      None
+    <% end %>
   </p>
 
 </div>
