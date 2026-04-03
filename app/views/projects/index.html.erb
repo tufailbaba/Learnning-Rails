@@ -1,5 +1,11 @@
 <h1>Projects</h1>
+<p><strong>Total Projects: <%= @projects.count %></strong></p>
 <ul>
   <% @projects.each do |project| %>
-    <li><%= link_to project.name, project_path(project) %></li>
+    <li>
+      <%= link_to project.name, project_path(project) %> 
+      <span style="color: #666;">(<%= project.todos.count %> todos)</span>
+    </li>
   <% end %>
+</ul>
+<%= link_to "New Project", new_project_path, class: "btn btn-primary" %>
